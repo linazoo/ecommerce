@@ -17,12 +17,12 @@ const App = () => {
     fetchProducts();
   }, []);
 
-  console.log(products);
+  // console.log(products);
 
   return (
     <div>
       <Navbar />
-      <Products />
+      {products.length ? <Products products={products} /> : null}
     </div>
   );
 };

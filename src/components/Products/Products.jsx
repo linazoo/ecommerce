@@ -4,25 +4,25 @@ import { Grid } from "@material-ui/core";
 import Product from "./Product/Product";
 import useStyles from "./styles";
 
-const products = [
-  {
-    id: 1,
-    name: "nike shoes 1",
-    description: "running shoes",
-    price: "$5000",
-    image:
-      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/afd1c6cf-9453-405d-9c24-e09cb06f45d1/air-force-1-fontanka-womens-shoes-cWbdwn.png",
-  },
-  {
-    id: 2,
-    name: "nike shoes",
-    description: "running shoes 2",
-    price: "$1000",
-    image:
-      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/41ac131c-9f5a-448b-a6d7-a64dc6444766/air-force-1-fontanka-womens-shoes-cWbdwn.png",
-  },
-];
-const Products = () => {
+// const products = [
+//   {
+//     id: 1,
+//     name: "nike shoes 1",
+//     description: "running shoes",
+//     price: "$5000",
+//     image:
+//       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/afd1c6cf-9453-405d-9c24-e09cb06f45d1/air-force-1-fontanka-womens-shoes-cWbdwn.png",
+//   },
+//   {
+//     id: 2,
+//     name: "nike shoes",
+//     description: "running shoes 2",
+//     price: "$1000",
+//     image:
+//       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/41ac131c-9f5a-448b-a6d7-a64dc6444766/air-force-1-fontanka-womens-shoes-cWbdwn.png",
+//   },
+// ];
+const Products = ({ products }) => {
   const classes = useStyles();
 
   return (
