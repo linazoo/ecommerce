@@ -22,7 +22,7 @@ import useStyles from "./styles";
 //       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/41ac131c-9f5a-448b-a6d7-a64dc6444766/air-force-1-fontanka-womens-shoes-cWbdwn.png",
 //   },
 // ];
-const Products = ({ products }) => {
+const Products = ({ products, onAddToCart }) => {
   const classes = useStyles();
 
   return (
@@ -32,7 +32,7 @@ const Products = ({ products }) => {
       <Grid container justifyContent="center" spacing={4}>
         {products.map((product) => (
           <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-            <Product product={product} />
+            <Product product={product} onAddToCart={onAddToCart} />
           </Grid>
         ))}
       </Grid>
