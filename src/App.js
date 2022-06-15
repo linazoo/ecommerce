@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //backend stuff
 import { commerce } from "./lib/commerce";
 
-import { Products, Navbar, Cart } from "./components";
+import { Products, Navbar, Cart, Checkout } from "./components";
 
 const App = () => {
   const [products, setProducts] = React.useState([]);
@@ -45,7 +45,7 @@ const App = () => {
     fetchCart();
   }, []);
 
-  console.log({ cart });
+  // console.log({ cart });
 
   return (
     <Router>
@@ -65,6 +65,9 @@ const App = () => {
               onRemoveFromCart={handleRemoveFromCart}
               onEmptyCart={handleEmptyCart}
             />
+          </Route>
+          <Route exact path="/checkout">
+            <Checkout />
           </Route>
         </Switch>
       </div>
