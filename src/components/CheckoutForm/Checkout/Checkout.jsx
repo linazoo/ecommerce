@@ -20,6 +20,7 @@ const steps = ["Shipping Address", "Payment Details"];
 const Checkout = ({ cart }) => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [checkoutToken, setCheckoutToken] = React.useState(null);
+  const [shippingData, setShippingData] = React.useState({});
   const classes = useStyles();
 
   React.useEffect(() => {
@@ -28,7 +29,7 @@ const Checkout = ({ cart }) => {
         const token = await commerce.checkout.generateToken(cart.id, {
           type: "cart",
         });
-        console.log(token);
+        // console.log(token);
         setCheckoutToken(token);
       } catch (error) {}
     };
@@ -36,13 +37,21 @@ const Checkout = ({ cart }) => {
     generateToken();
   }, [cart]);
 
+  const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
+
+  const next = (data) => {
+    setShippingData(data);
+    nextStep();
+  };
+
   const Confirmation = () => <div>Confirmation</div>;
 
   const Form = () =>
     activeStep === 0 ? (
-      <AddressForm checkoutToken={checkoutToken} />
+      <AddressForm checkoutToken={checkoutToken} next={next} />
     ) : (
-      <PaymentForm />
+      <PaymentForm shippingData={shippingData} />
     );
 
   return (
